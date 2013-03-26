@@ -1,0 +1,14 @@
+#!/bin/sh
+
+testfile=$1
+
+while read -r line
+do
+    outfile=$line"_out.mp3"
+    outbmp=$outfile".bmp"
+    echo $outfile
+    echo $outbmp
+
+#/home/eagle/watermark_v1/watermark $line -mp3 $outfile -mp3 /home/eagle/watermark_v1/zju.bmp
+./watermark_test $outfile -mp3 zju.bmp $outbmp
+done <$testfile
